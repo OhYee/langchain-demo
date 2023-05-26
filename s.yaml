@@ -1,0 +1,29 @@
+edition: 1.0.0
+name: langchain
+access: "ohyee-quanxi"
+
+vars: # 全局变量
+  region: "cn-hangzhou"
+  service:
+    name: "langchain"
+    description: 'langchain example'
+
+services:
+  langchain:
+    component: fc 
+    actions:
+      pre-deploy: 
+        - component: fc build --use-docker --dockerfile ./code/Dockerfile 
+    props:
+      region: ${vars.region}
+      service: ${vars.service}
+      function:
+        name: "langchain"
+        description: 'hello world by serverless devs'
+        caPort: 9000
+        memorySize: 256
+        timeout: 60
+        runtime: custom-container
+        customContainerConfig:
+          image: "1"
+        codeUri: ./code

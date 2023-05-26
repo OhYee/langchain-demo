@@ -1,0 +1,19 @@
+{
+  "name": "lanbchain",
+  "build": {
+    "dockerfile": "../code/Dockerfile"
+  },
+  "shutdownAction": "stopContainer",
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "gruntfuggly.todo-tree",
+    "eamodio.gitlens",
+    "letmaik.git-tree-compare",
+    "gerrnperl.outline-map",
+
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+    "visualstudioexptteam.vscodeintellicode"
+  ]
+}
