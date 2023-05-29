@@ -16,11 +16,11 @@ class LangChain():
         self.openai_llm = OpenAI(temperature=0, openai_api_key=self.openai_key)
 
         # 加载所需工具，包括serpapi和llm-math
-        tools = load_tools(["llm-math", "requests_all"], llm=self.openai_llm)
+        tools = load_tools(["llm-math"], llm=self.openai_llm)
         # tools = load_tools(["llm-math"], llm=llm)
 
         # 初始化代理对象，设定代理类型为ZERO_SHOT_REACT_DESCRIPTION，输出详细信息
-        self.openai_agent = initialize_agent(tools, self.openai_llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+        self.openai_agent = initialize_agent(tools, self.openai_llm, agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
 
     def call(self, openai_key, question):

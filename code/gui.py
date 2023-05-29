@@ -59,7 +59,7 @@ with gr.Blocks() as iface:
         if history == None:
             history = []
             
-        history.append((msg, result))
+        history.append((msg, result["output"]))
         
         return msg, history, history, ""
 
